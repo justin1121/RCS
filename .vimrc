@@ -19,6 +19,16 @@ set smartcase
 set mouse=a
 set softtabstop=2
 
+" vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'pangloss/vim-javascript'
+
+filetype plugin indent on
+
 " folding stuffff
 set foldmethod=manual
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -31,10 +41,6 @@ nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 
-map <F2> :SyntasticToggleMode<CR>
-map <F3> :Error<CR>
-map ~ :TlistToggle<CR>
-
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
 set wildmode=list:longest
+
+au BufNewFile,BufRead *.ejs set filetype=html
